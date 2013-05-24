@@ -11,13 +11,13 @@ def recursive_sort unsorted, sorted
 	smallest = unsorted.pop
 	still_unsorted = []
 	
-	unsorted.each do |tested_object|			
-		if tested_object < smallest
-			still_unsorted.push smallest
-			smallest = tested_object
-		else
-			still_unsorted.push tested_object
-		end
+	unsorted.each do |tested_object|
+			if tested_object.downcase < smallest.downcase
+				still_unsorted.push smallest
+				smallest = tested_object
+			else
+				still_unsorted.push tested_object
+			end
 end
 
 
@@ -27,6 +27,6 @@ end
 	
 end
 
-puts sort ['cat','tiger','bear','leopard','cheatah','zebra']
+puts sort ['cat','Tiger','Bear','leopard','cheatah','Zebra']
 
 	
