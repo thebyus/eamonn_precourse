@@ -1,3 +1,5 @@
+
+
 def english_number number
 
 	if number < 0
@@ -28,24 +30,19 @@ def english_number number
 		thousands = english_number done
 		number_string = number_string + thousands + ' thousand'
 		
-		left = 0
 	
 		if left > 0
 			number_string = number_string + ' '
 		end
 	end
 	
-	left = number
 	done = left/100 
 	left = left - done*100 
 
 	if done > 0
-		if ((done == 1)
-		number_string = number_string + ones_place[left-1] + ' hundred'
+		number_string = number_string + ones_place[done-1] + ' hundred'
 		
-		left = 0
-		
-		else left > 0
+		if left > 0
 			number_string = number_string + ' '
 		end
 	end
@@ -77,17 +74,28 @@ def english_number number
 		
 	
 	end
-	number_string
+ 	number_string
 end
+
+bottles_begin = 999
+
+bottles = bottles_begin
+
+while bottles > 2
+	puts english_number(bottles).capitalize + ' bottles of beer on the wall, ' + english_number(bottles) + ' bottles of beer.'
+	bottles = bottles - 1
+	puts 'Take one down, pass it around, ' + english_number(bottles) + ' bottles of beer on the wall.'
+
+end
+
+puts 'Two bottles of beer on the wall, two bottles of beer.'
+puts 'Take one down, pass it around, one bottle of beer on the wall.'
+puts 'One bottle of beer on the wall, one bottle of beer.'
+puts 'Take one down, pass it around, no more bottles of beer on the wall.'
+
 	
-puts english_number(21)
-puts english_number(62)
-puts english_number(11)
-puts english_number(100)
-puts english_number(0)
-puts english_number(03)
-puts english_number(632)
-puts english_number(1987)
+
+
 			
 				
 				

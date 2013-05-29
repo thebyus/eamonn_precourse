@@ -21,32 +21,15 @@ def english_number number
 	
 	
 	left = number
-	done = left/1000 
-	left = left - done*1000 
-
-	if done > 0
-		thousands = english_number done
-		number_string = number_string + thousands + ' thousand'
-		
-		left = 0
-	
-		if left > 0
-			number_string = number_string + ' '
-		end
-	end
-	
-	left = number
 	done = left/100 
 	left = left - done*100 
 
 	if done > 0
-		if ((done == 1)
-		number_string = number_string + ones_place[left-1] + ' hundred'
-		
-		left = 0
-		
-		else left > 0
-			number_string = number_string + ' '
+		hundreds = english_number done
+		number_string = number_string + hundreds + ' hundred'
+	
+		if left > 0
+			number_string = number_string + ' & '
 		end
 	end
 	
@@ -63,7 +46,7 @@ def english_number number
 		end
 		
 		if left > 0
-			number_string = number_string + ' '
+			number_string = number_string + ' & '
 		end
 	end
 	
